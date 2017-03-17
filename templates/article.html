@@ -66,6 +66,10 @@
           <time datetime="{{ article.date.strftime('%Y-%m-%d') }}" itemprop="datePublished">{{ article.locale_date }}</time>
            •
           <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+           •
+          {% for translation in article.translations %}
+            <a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+          {% endfor %}
           {# Basic support for tags - maybe next time #}
           {#
           {% if article.tags %}
